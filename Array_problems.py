@@ -1,4 +1,4 @@
-Data = [1,2,6,7,4,0,5]
+Data = [1,2,6,7,4,0,5]                      # complexity Analysis
 Target = 10
 
 
@@ -22,7 +22,7 @@ def test2(Data,target):                     # in this case, O(n)T     O(n)S
         if used.__contains__(num):
             return(num,match)
         else:
-            used.add(match)
+            used.add(num)
 
 
 result = test2(Data,Target)
