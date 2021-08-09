@@ -1,11 +1,11 @@
-Data = [1,2,6,7,4,0,5]                      # complexity Analysis
+Data = [1,2,6,7,4,0,5]                      # complexity Analysis     S = space  and T = tiime
 Target = 10
 
 
 def test(self,Targe):
     i = 0
     j = 1
-    for i in range(len(self) - 1):          # in this case, O(n*n)T    O(1)S
+    for i in range(len(self) - 1):          # in this case, complexity is O(n*n)T    O(1)S
         for j in range(len(self)):
             if i + j == Target:
                 return i , j
@@ -16,7 +16,7 @@ print("from test: "+ str(result))
 
 
 
-def test_2(Data,target):                     # in this case, O(n)T     O(n)S
+def test_2(Data,target):                     # in this case, complexity is O(n)T     O(n)S
     used = set()
     i = 0
     for i in range(len(Data)):
@@ -33,13 +33,13 @@ result2 = test_2(Data,Target)
 print("from test_2 : "+ str(result2))
 
 
-#===========================================================================================================
+print("=========================================================================================================== ")
 
 
 Data_2 = [6,1,6,8,10,4,15,6,3,9,6]
 Target_2 = 6
 
-def test_3(Data_2,Target_2):
+def test_3(Data_2,Target_2):                       # in this case, complexity is O(n)T and O(1)S
     i = 0
     temp = 0
     for i in range(len(Data_2)):
@@ -58,3 +58,6 @@ def test_3(Data_2,Target_2):
 
 result_3 = test_3(Data_2, Target_2)
 print("from test_3: "+ str(result_3))
+
+
+print("=========================================================================================================== ")
