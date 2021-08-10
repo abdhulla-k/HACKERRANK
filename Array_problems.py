@@ -1,3 +1,11 @@
+"""oprations:  1.set
+               2.get
+               3.Traversal
+               4.insert
+               5.delete
+               6.init        """
+#====================================================================================================================
+
 Data = [1,2,6,7,4,0,5]                      # complexity Analysis     S = space  and T = tiime
 Target = 10
 
