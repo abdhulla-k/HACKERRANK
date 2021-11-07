@@ -31,7 +31,16 @@ def getTotalX(a, b):
         return(FindAllFactorsn(AllFactorOfA, b))
     return(FindAllFactors(b,a))
 
+
+def Second(a, b):
+    result = 0
+    for i in range(1,101):
+        if all(i%j == 0 for j in a) and all(j%i == 0 for j in b):
+            result += 1
+    return(result)
+
 if __name__ == '__main__':
     a = [2, 4]
     b = [16, 32, 96]
     print(getTotalX(a,b))
+    print(Second(a,b))
