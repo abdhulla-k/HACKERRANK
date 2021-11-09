@@ -9,6 +9,13 @@ def Second(s,d,m):
             count += 1
     return count
 
+def First(s,d,m):
+    count = 0
+    for i in range(len(s)-m+1):
+        if sum(s[i:i+m]) == d:
+            count += 1
+    return count
+
 
 if __name__ == '__main__':
     s = [2, 5, 1, 3, 4, 4, 3, 5, 1 ,1, 2, 1, 4, 1, 3, 3, 4, 2, 1]
@@ -16,3 +23,4 @@ if __name__ == '__main__':
     d = 18
 
     print(Second(s, d, m))
+    print(First(s, d, m))
