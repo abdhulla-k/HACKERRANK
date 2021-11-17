@@ -16,9 +16,20 @@ def countingValleys(steps, path):
             result += 1
     return result
 
+def second(steps, path):
+    result = 0
+    position = 0
+    for step in path:
+        if step == 'U':
+            position += 1
+            if position == 0:
+                result += 1
+        else:
+            position -= 1
+
 
 if __name__ == '__main__':
     steps = 8
     path = 'UDDDUDUU'
     print(countingValleys(steps, path))
-    
+    print(second(steps, path))
