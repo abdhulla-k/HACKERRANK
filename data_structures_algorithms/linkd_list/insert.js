@@ -11,9 +11,40 @@ function addToStart(value) {
     printList()
 }
 
+// function to insert a new value to the end of a linkd list
+function insertToEnd(value) {
+
+    // create new node
+    let newNode = new Node(value);
+
+    // set new node as second element if there is only one element in linkd list
+    if(head === null) {
+        head = newNode;
+        return;
+    }
+
+    newNode.next = null;
+
+    // save the head to a new variable to traverse
+    let last = head;
+
+    // traverse through the linkd list
+    while(last.next != null) {
+        last = last.next;
+    }
+
+    // insert the new node at last
+    last.next = newNode;
+
+    // print the linkd list
+    printList();
+    return
+}
+
 // function to find and print the data from our linkd list
 function printList() {
     let n = head;
+    console.log("---------------------------------------------------------")
     while (n != null) {
         console.log(n.data)
         n = n.next;
@@ -36,3 +67,4 @@ let c = new Node(3);
 b.next = c;
 
 addToStart(55);
+insertToEnd(55);
