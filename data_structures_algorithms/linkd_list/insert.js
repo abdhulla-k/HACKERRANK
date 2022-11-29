@@ -41,6 +41,24 @@ function insertToEnd(value) {
     return
 }
 
+// function to insert a node to after a given node
+function insertToAfter(previous_node, value) {
+
+    // assure the next value is not null
+    if(previous_node.next === null) {
+        console.log("the given previous nod cannot be null");
+        return;
+    }
+
+    // create new node
+    let newNode = new Node(value);
+
+    // insert new node
+    newNode.next = previous_node.next;
+    previous_node.next = newNode;
+    return;
+}
+
 // function to find and print the data from our linkd list
 function printList() {
     let n = head;
