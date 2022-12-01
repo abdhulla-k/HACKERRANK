@@ -90,6 +90,32 @@ function addToEndAndBeggining(value, head) {
     return addToBeggining();
 }
 
+// function to add a node after and before of a node with x data
+function insertToBothSideOfANode(value, head, x) {
+    // create two nodes
+    let beforeNode = new Node(value);
+    let afterNode = new Node(value);
+
+    // create a variable to track previous node while travesing
+    let pre;
+
+    // traverse through linkd list
+    let n = head;
+    while (n.data != x) {
+        console.log("not match")
+        pre = n;
+        n = n.next;
+    }
+
+    // add to after
+    afterNode.next = n.next;
+    n.next = afterNode;
+
+    // add to before
+    beforeNode.next = pre.next;
+    pre.next = beforeNode;
+}
+
 
 
 // array to linkd list
@@ -99,4 +125,8 @@ printList(head);
 
 // add a value to the end and start of a linkd list
 head = addToEndAndBeggining(33, head);
+printList(head);
+
+// add a node to after and before a node that with x data
+insertToBothSideOfANode("kk", head, 3);
 printList(head);
