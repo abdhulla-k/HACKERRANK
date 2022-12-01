@@ -46,7 +46,7 @@ function arrayToList(arr) {
     let root = null;
 
     // loop through the array and call addToList function
-    for( let i = 0; i < n; i++ ) {
+    for (let i = 0; i < n; i++) {
         root = addToList(root, arr[i]);
     }
 
@@ -56,6 +56,7 @@ function arrayToList(arr) {
 
 // function to print the linkd list;
 function printList(head) {
+    console.log("---------------------linkd list----------------------");
     let n = head;
     // loop through the linkd list and print the value
     while (n != null) {
@@ -64,10 +65,38 @@ function printList(head) {
     }
 }
 
+// function to add a value to the end and the beginning of a linkd list
+function addToEndAndBeggining(value, head) {
+    function addToEnd() {
+        // create new node
+        let newNode = new Node(value);
+        let n = head;
+        // loop through the list
+        while (n.next != null) {
+            n = n.next;
+        }
+        n.next = newNode;
+    }
+
+    function addToBeggining() {
+        // create new node
+        let newNode = new Node(value);
+        newNode.next = head;
+        head = newNode;
+        return head;
+    }
+
+    addToEnd();
+    return addToBeggining();
+}
 
 
-// array  to conver to linkd list
+
+// array to linkd list
 let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 head = arrayToList(array);
+printList(head);
 
+// add a value to the end and start of a linkd list
+head = addToEndAndBeggining(33, head);
 printList(head);
