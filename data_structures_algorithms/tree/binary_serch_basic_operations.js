@@ -24,18 +24,35 @@ class BinarySearchTree {
     // insert function
     insertNode(root, node) {
         if(root.value > node.value) {
-            if(this.left === null) {
-                this.left = node;
+            if(root.left === null) {
+                root.left = node;
             } else {
-                this.insertNode(this.left, node);
+                this.insertNode(root.left, node);
             }
         } else {
             if(root.right === null) {
-                this.right = value;
+                root.right = node;
             } else {
-                this.insertNode(this.right, node);
+                this.insertNode(root.right, node);
             }
         }
+    }
+
+    // in order traversal function
+    // to print entire tree
+    // what is in order traversal?
+    // In this traversal method, the left subtree is visited first, then the root and later the right sub-tree.d
+    inOrderTraversal(root) {
+        // go to left first
+        if(root.left !== null) {
+            this.inOrderTraversal(root.left);
+        }
+        // go to right after going left
+        if(root.right !== null) {
+            this.inOrderTraversal(root.right);
+        }
+        // print the value
+        console.log(root.value);
     }
 }
 
@@ -48,3 +65,16 @@ class Node {
         this.left = null;
     }
 }
+
+let table = new BinarySearchTree();
+table.insert(10);
+table.insert(11);
+table.insert(9);
+table.insert(12);
+table.insert(11);
+table.insert(8);
+table.insert(2);
+table.insert(1);
+table.insert(3);
+
+table.inOrderTraversal(table.root);
