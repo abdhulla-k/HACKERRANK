@@ -70,6 +70,21 @@ class BinarySearchTree {
             this.preOrderTraversal(root.right);
         }
     }
+
+    // postorder traversal function
+    // to print the values of tree
+    // what is postorder traversal?
+    // Postorder traversal is used to visit the node in the tree. It pursues the rule of LRN, which means Left-right-node.
+    postOrderTraversal(root) {
+        if(root.left !== null) {
+            this.postOrderTraversal(root.left);
+        }
+
+        if(root.right !== null) {
+            this.postOrderTraversal(root.right);
+        }
+        console.log(root.value);
+    }
 }
 
 // node class
@@ -86,11 +101,14 @@ let table = new BinarySearchTree();
 table.insert(10);
 table.insert(11);
 table.insert(9);
+table.insert(9.5);
 table.insert(12);
+table.insert(13);
 table.insert(11);
 table.insert(8);
+table.insert(8.5);
 table.insert(2);
 table.insert(1);
 table.insert(3);
 
-table.preOrderTraversal(table.root);
+table.postOrderTraversal(table.root);
