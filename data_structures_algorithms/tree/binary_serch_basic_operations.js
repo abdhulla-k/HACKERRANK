@@ -14,7 +14,7 @@ class BinarySearchTree {
     insert(value) {
         const node = new Node(value);
         // check the existance of root
-        if(this.root === null) {
+        if (this.root === null) {
             this.root = node;
         } else {
             this.insertNode(this.root, node)
@@ -23,19 +23,34 @@ class BinarySearchTree {
 
     // insert function
     insertNode(root, node) {
-        if(root.value > node.value) {
-            if(root.left === null) {
+        if (root.value > node.value) {
+            if (root.left === null) {
                 root.left = node;
             } else {
                 this.insertNode(root.left, node);
             }
         } else {
-            if(root.right === null) {
+            if (root.right === null) {
                 root.right = node;
             } else {
                 this.insertNode(root.right, node);
             }
         }
+    }
+
+    // search function to check the 
+    search(value) {
+        if (!this.root.value) return false;
+        let current = this.root;
+        while(current) {
+            if(value === current.value) return true;
+            if(value < current.value) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return false;
     }
 
     // in order traversal function
@@ -44,11 +59,11 @@ class BinarySearchTree {
     // In this traversal method, the left subtree is visited first, then the root and later the right sub-tree.
     inOrderTraversal(root) {
         // go to left first
-        if(root.left !== null) {
+        if (root.left !== null) {
             this.inOrderTraversal(root.left);
         }
         // go to right after going left
-        if(root.right !== null) {
+        if (root.right !== null) {
             this.inOrderTraversal(root.right);
         }
         // print the value
@@ -62,11 +77,11 @@ class BinarySearchTree {
     // right subtree is recursively traversed.
     preOrderTraversal(root) {
         console.log(root.value);
-        if(root.left !== null) {
+        if (root.left !== null) {
             this.preOrderTraversal(root.left);
         }
 
-        if(root.right !== null) {
+        if (root.right !== null) {
             this.preOrderTraversal(root.right);
         }
     }
@@ -76,11 +91,11 @@ class BinarySearchTree {
     // what is postorder traversal?
     // Postorder traversal is used to visit the node in the tree. It pursues the rule of LRN, which means Left-right-node.
     postOrderTraversal(root) {
-        if(root.left !== null) {
+        if (root.left !== null) {
             this.postOrderTraversal(root.left);
         }
 
-        if(root.right !== null) {
+        if (root.right !== null) {
             this.postOrderTraversal(root.right);
         }
         console.log(root.value);
@@ -111,4 +126,4 @@ table.insert(2);
 table.insert(1);
 table.insert(3);
 
-table.postOrderTraversal(table.root);
+console.log(table.search(3));
