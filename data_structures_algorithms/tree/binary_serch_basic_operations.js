@@ -41,7 +41,7 @@ class BinarySearchTree {
     // in order traversal function
     // to print entire tree
     // what is in order traversal?
-    // In this traversal method, the left subtree is visited first, then the root and later the right sub-tree.d
+    // In this traversal method, the left subtree is visited first, then the root and later the right sub-tree.
     inOrderTraversal(root) {
         // go to left first
         if(root.left !== null) {
@@ -53,6 +53,22 @@ class BinarySearchTree {
         }
         // print the value
         console.log(root.value);
+    }
+
+    // preorder traversal function
+    // to print the values of tree
+    // what is preorder traversal ?
+    // It means that, first root node is visited after that the left subtree is traversed recursively, and finally,
+    // right subtree is recursively traversed.
+    preOrderTraversal(root) {
+        console.log(root.value);
+        if(root.left !== null) {
+            this.preOrderTraversal(root.left);
+        }
+
+        if(root.right !== null) {
+            this.preOrderTraversal(root.right);
+        }
     }
 }
 
@@ -77,4 +93,4 @@ table.insert(2);
 table.insert(1);
 table.insert(3);
 
-table.inOrderTraversal(table.root);
+table.preOrderTraversal(table.root);
