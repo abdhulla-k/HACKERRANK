@@ -42,9 +42,9 @@ class BinarySearchTree {
     search(value) {
         if (!this.root.value) return false;
         let current = this.root;
-        while(current) {
-            if(value === current.value) return true;
-            if(value < current.value) {
+        while (current) {
+            if (value === current.value) return true;
+            if (value < current.value) {
                 current = current.left;
             } else {
                 current = current.right;
@@ -100,6 +100,44 @@ class BinarySearchTree {
         }
         console.log(root.value);
     }
+
+    deleteNode(root, value) {
+        if (root === null) {
+            return null;
+        }
+
+        if (value < root.value) {
+            root.left = this.deleteNode(root.left, value);
+        } else if (value > root.value) {
+            root.right = this.deleteNode(root.right, value);
+        } else {
+            // Node to be deleted found
+            if (root.left === null && root.right === null) {
+                // Case 1: Node has no children
+                return null;
+            } else if (root.left === null) {
+                // Case 2: Node has one child
+                return root.right;
+            } else if (root.right === null) {
+                // Case 2: Node has one child
+                return root.left;
+            } else {
+                // Case 3: Node has two children
+                // Find minimum value in right subtree
+                let minRight = root.right;
+                while (minRight.left !== null) {
+                    minRight = minRight.left;
+                }
+                // Replace node value with minimum value in right subtree
+                root.value = minRight.value;
+                // Delete the minimum node in right subtree
+                root.right = this.deleteNode(root.right, minRight.value);
+            }
+        }
+
+        return root;
+    }
+
 }
 
 // node class
@@ -127,3 +165,5 @@ table.insert(1);
 table.insert(3);
 
 console.log(table.search(3));
+table.deleteNode(table.root, 8);
+table.inOrderTraversal(table.root);
