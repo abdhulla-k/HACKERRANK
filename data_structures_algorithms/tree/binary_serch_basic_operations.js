@@ -62,12 +62,14 @@ class BinarySearchTree {
         if (root.left !== null) {
             this.inOrderTraversal(root.left);
         }
+        
+        // print the value
+        console.log(root.value);
+
         // go to right after going left
         if (root.right !== null) {
             this.inOrderTraversal(root.right);
         }
-        // print the value
-        console.log(root.value);
     }
 
     // preorder traversal function
@@ -77,6 +79,7 @@ class BinarySearchTree {
     // right subtree is recursively traversed.
     preOrderTraversal(root) {
         console.log(root.value);
+
         if (root.left !== null) {
             this.preOrderTraversal(root.left);
         }
@@ -98,6 +101,7 @@ class BinarySearchTree {
         if (root.right !== null) {
             this.postOrderTraversal(root.right);
         }
+
         console.log(root.value);
     }
 
@@ -151,19 +155,27 @@ class Node {
 }
 
 let table = new BinarySearchTree();
+table.insert(25);
+table.insert(15);
 table.insert(10);
-table.insert(11);
-table.insert(9);
-table.insert(9.5);
+table.insert(4);
+table.insert(22);
 table.insert(12);
-table.insert(13);
-table.insert(11);
-table.insert(8);
-table.insert(8.5);
-table.insert(2);
-table.insert(1);
-table.insert(3);
+table.insert(18);
+table.insert(24);
+table.insert(50);
+table.insert(35);
+table.insert(31);
+table.insert(44);
+table.insert(70);
+table.insert(66);
+table.insert(90);
 
-console.log(table.search(3));
-table.deleteNode(table.root, 8);
+// console.log(table.search(3));
+// table.deleteNode(table.root, 8);
+console.log('---------inorder-------------')
 table.inOrderTraversal(table.root);
+console.log('---------preorder-------------')
+table.preOrderTraversal(table.root);
+console.log('---------postorder-------------')
+table.postOrderTraversal(table.root);
