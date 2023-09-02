@@ -31,6 +31,14 @@ class Graph {
       console.log(`${vertex}  =>  ${[...this.graph[vertex]]}`);
     }
   }
+
+  // Function to check has connection 
+  hasEdge(vertex1, vertex2) {
+    return (
+      this.graph[vertex1].has(vertex2) &&
+      this.graph[vertex2].has(vertex1)
+    )
+  }
 }
 
 
@@ -43,3 +51,5 @@ graph.addEdge('A', 'B');
 graph.addEdge('A', 'C');
 
 graph.display();
+
+console.log(graph.hasEdge('C', 'B'));
