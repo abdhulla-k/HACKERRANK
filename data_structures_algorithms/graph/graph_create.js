@@ -39,6 +39,25 @@ class Graph {
       this.graph[vertex2].has(vertex1)
     )
   }
+
+  // Function to delete edges
+  removeEdge(vertex1, vertex2) {
+    this.graph[vertex1].delete(vertex2);
+    this.graph[vertex2].delete(vertex1);
+  }
+
+  // Function to delete a vertex
+  removeVertex(vertex) {
+    if(!this.graph[vertex]) {
+      return;
+    }
+
+    for(let edge of this.graph[vertex]) {
+      this.removeEdge(edge, vertex);
+    }
+
+    delete this.graph[vertex];
+  }
 }
 
 
@@ -53,3 +72,10 @@ graph.addEdge('A', 'C');
 graph.display();
 
 console.log(graph.hasEdge('C', 'B'));
+
+graph.removeEdge('A', 'B');
+graph.display();
+
+console.log('----------------');
+graph.removeVertex('A');
+graph.display();
