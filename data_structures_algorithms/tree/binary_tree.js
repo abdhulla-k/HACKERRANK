@@ -110,7 +110,20 @@ class BinaryTree {
     }
 
 
+    // Functon to convert a tree to mirror tree
+    convertToMirror() {
+        this.root = mirror(this.root);
+    }
 
+    mirror(node) {
+        if(node === null) {
+            return node;
+        }
+
+        // Swap between right and left
+        node.left = this.mirror(node.right);
+        node.right = this.mirror(node.left);
+    }
 }
 
 // a class tocreate nodes
