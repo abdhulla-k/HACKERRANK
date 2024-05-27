@@ -30,3 +30,38 @@ function findMaximumSubarraySum(array) {
 
 const result = findMaximumSubarraySum(arrayOne);
 console.log(result);
+
+
+// Better solution
+// O(n) time | O(1) space
+function findMaximumSubarraySum2(array) {
+    let maxSum = array[0];
+    let currentSum = array[0];
+    let startIndex = 0;
+    let endIndex = 0;
+    let tempStartIndex = 0;
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > currentSum + array[i]) {
+            currentSum = array[i];
+            tempStartIndex = i;
+        } else {
+            currentSum += array[i];
+        }
+
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+            startIndex = tempStartIndex;
+            endIndex = i;
+
+        }
+    }
+
+    return {
+        array: array.slice(startIndex, endIndex + 1),
+        sum: maxSum
+    };
+}
+
+const result2 = findMaximumSubarraySum2(arrayOne);
+console.log(result2);
